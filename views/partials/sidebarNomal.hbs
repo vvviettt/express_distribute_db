@@ -1,0 +1,21 @@
+<div class="sidebar">
+  <ul class="list">
+    <li class="item">
+      <a href="/dashboard" class="item-link">
+        Dashboard
+      </a>
+    </li>
+    <li class="item">
+      <a href="/dashboard/request" class="item-link">
+        Request
+      </a>
+    </li>
+    {{#if isAdmin}}
+      <li class="item">
+        <a href="/dashboard/list-user" class="item-link">
+          Danh sách người dùng
+        </a>
+      </li>
+    {{/if}}
+  </ul>
+</div>

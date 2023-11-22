@@ -1,0 +1,29 @@
+{
+  "name": "distributed-database-end-course-project",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --ignore 'public/**/*.js' ./bin/www"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "dayjs": "^1.11.10",
+    "debug": "~2.6.9",
+    "dotenv": "^16.3.1",
+    "express": "~4.16.1",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "mssql": "^10.0.1"
+  },
+  "devDependencies": {
+    "gauge": "^5.0.1",
+    "nodemon": "^3.0.1"
+  },
+  "resolutions": {
+    "string-width": "4.1.0"
+  }
+}

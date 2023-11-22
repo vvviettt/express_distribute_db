@@ -1,0 +1,78 @@
+<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+{{>sidebarNomal}}
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="title-container">
+        <div class="title">Danh sách người dùng</div>
+        <div class="right-content">
+            <a class="add-btn" href="/dashboard/add-user">Thêm mới</a>
+        </div>
+    </div>
+    <div id="user-table" class="user-table">
+        <div class="tb-header">
+            <div class="header-wrapper  w-1">
+                <p class="header-text">STT</p>
+            </div>
+             <div class="header-wrapper  w-2">
+                <p class="header-text">Tên</p>
+            </div>
+            <div class="header-wrapper  w-2">
+                <p class="header-text">Email</p>
+            </div>
+            <div class="header-wrapper  w-1">
+                <p class="header-text">Đơn vị</p>
+            </div>
+             <div class="header-wrapper  w-2">
+                <p class="header-text">Vai trò</p>
+            </div>
+            <div class="header-wrapper  w-2">
+                <p class="header-text">Trạng thái</p>
+            </div>
+            <div class="header-wrapper  w-2">
+                <p class="header-text">Action</p>
+            </div>
+        </div>
+        {{#each users}}
+            <div class="row {{#di @index 2 }}row-highlight{{/di}}">
+                <div class="item  w-1">
+                    <p class="header-text">{{inc @index}}</p>
+                </div>
+                <div class="item  w-2">
+                    <p class="header-text">{{this/name}}</p>
+                </div>
+                <div class="item  w-2">
+                    <p class="header-text">{{this/email}}</p>
+                </div>
+                <div class="item  w-1">
+                    <p class="header-text">{{this/unitId}}</p>
+                </div>
+                <div class="item  w-2">
+                    <p class="header-text">
+                        {{#if_eq this/roll  "admin"}}
+                            Quản trị hệ thống
+                        {{else}}
+                            Người dùng
+                        {{/if_eq}}
+                    </p>
+                </div>
+                <div class="item  w-2">
+                    <label class="switch">
+                        <input class="status" data-id="{{this/id}}" type="checkbox" {{#if_eq this/isActive 1}} checked {{/if_eq}} >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="header-wrapper  w-2">
+                    <a href="/dashboard/user/edit?id={{this/id}}">
+                        <img style="height: 25px;" src="/images/edit.svg" alt="" srcset="">
+                    </a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+  </div>
+</div>
+<script>
+</script>
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<script src="/js/list-user.js"></script>

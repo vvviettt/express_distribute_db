@@ -1,0 +1,21 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    {{#each css}}
+      <link rel="stylesheet" href="/css/{{this}}" />
+    {{/each}}
+  </head>
+  <body>
+    <div class="page">
+      {{{body}}}
+    </div>
+    {{#each js}}
+      <script src="/js/{{this}}"></script>
+    {{/each}}
+  </body>
+</html>

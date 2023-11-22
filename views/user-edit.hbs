@@ -1,0 +1,65 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="title">Chỉnh sửa user</div>
+    <div>
+        <form id="form-user" action="/user/edit" method="post">
+            <input name="id" type="text" hidden class="id-input">
+            <div class="wrapper">
+                <label class="label" for="name">Tên</label>
+                <input id="name" class="input" type="text" name="name">
+            </div>
+            <div class="wrapper">
+                <label class="label" for="email">Email</label>
+                <input id="email" class="input" type="text" name="email">
+            </div>
+            <div class="wrapper">
+                <label class="label" for="roll">Đơn vị</label>
+                <select id="roll-select"  class="select" name="roll">
+                    <option value="admin">Quản trị viên</option>
+                    <option value="normal">Người dùng</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <label class="label" for="roll">Trạng thái</label>
+                <label class="switch">
+                    <input name="isActive" class="status" type="checkbox" {{#if_eq user/isActive 1}} checked {{/if_eq}} >
+                    <span class="slider round"></span>
+                </label>
+
+            </div>
+            <div class="wrapper">
+                <label class="label" for="unit">Vai trò</label>
+                <select id="unit" class="select" name="unit">
+                    {{#each units}}
+                        <option id="option-{{this/code}}" value="{{this/code}}">{{this/name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit">Chỉnh sửa</button>
+        </form>
+    </div>
+    <div class="title">Đổi mật khẩu</div>
+    <form action="/user/change-password" method="post">
+        <div class="wrapper">
+            <input name="id" type="text" hidden class="id-input">
+            <label class="label" for="password">Mật khẩu</label>
+            <input class="input" type="password" name="password">
+        </div>
+        <button type="submit">Chỉnh sửa</button>
+
+    </form>
+  </div>
+</div>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    $('#name').val('{{user/name}}')
+    $('#email').val('{{user/email}}')
+    $('#roll-select').val('{{user/roll}}')
+    $('#unit').val('{{user/unitId}}')
+    $('.id-input').val(urlParams.get('id'))
+</script>
+<script src="/js/editUser.js">
+    
+</script>

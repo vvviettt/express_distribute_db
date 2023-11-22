@@ -1,0 +1,14 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="title">Lịch làm việc</div>
+    <div id="calendar" class="calender"></div>
+  </div>
+</div>
+<script>
+  var decodedJson = decodeURIComponent("{{{events}}}");
+  const events =JSON.parse(decodedJson)
+</script>
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.9/index.global.min.js'></script>
+<script src="/js/calender.js"></script>

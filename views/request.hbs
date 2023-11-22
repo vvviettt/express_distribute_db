@@ -1,0 +1,19 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="title">Thêm yêu cầu</div>
+    <div class="form-wrapper">
+        <form action="/dashboard/request" method="post" >
+            <div class="input-container">
+                <label class="label" for="desc">Chi tiết yêu cầu</label>
+                <textarea  class="input" type="text" name="desc"></textarea>
+            </div>
+            <p class="error">{{error}}</p>
+            <p class="success">{{success}}</p>
+            <button type="submit">Gửi</button>
+        </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,49 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="title">Thêm người dùng</div>
+    <div>
+        <form id="form-user" action="/user" method="post">
+            <div class="wrapper">
+                <label class="label" for="name">Tên</label>
+                <input id="name" class="input" type="text" name="name">
+            </div>
+            <div class="wrapper">
+                <label class="label" for="email">Email</label>
+                <input id="email" class="input" type="text" name="email">
+            </div>
+             <div class="wrapper">
+                <label class="label" for="password">Mật khẩu</label>
+                <input id="password" class="input" type="text" name="password">
+            </div>
+            <div class="wrapper">
+                <label class="label" for="roll">Đơn vị</label>
+                <select id="roll-select"  class="select" name="roll">
+                    <option value="normal">Người dùng</option>
+                    <option value="admin">Quản trị viên</option>
+                </select>
+            </div>
+            <div class="wrapper">
+                <label class="label" for="roll">Trạng thái</label>
+                <label class="switch">
+                    <input name="isActive" class="status" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+
+            </div>
+            <div class="wrapper">
+                <label class="label" for="unit">Vai trò</label>
+                <select id="unit" class="select" name="unit">
+                    {{#each units}}
+                        <option id="option-{{this/code}}" value="{{this/code}}">{{this/name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <button type="submit">Chỉnh sửa</button>
+        </form>
+    </div>
+  </div>
+</div>
+<script>
+</script>
