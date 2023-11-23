@@ -1,6 +1,5 @@
 function adminMiddleware(req, res, next) {
   if (req.session.User?.roll === "admin") {
-    console.log(req.session.User);
     res.params = { ...res.params, isAdmin: true };
     return next();
   }

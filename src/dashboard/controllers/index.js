@@ -1,6 +1,9 @@
 const { getUserById, getUnits } = require("../../user/services/user.service");
 const { getEvents } = require("../services/index.services");
-const { addRequestService } = require("../services/reques.service");
+const {
+  addRequestService,
+  getAllRequest,
+} = require("../services/reques.service");
 const { getUsers } = require("../services/user.service");
 
 async function dashboardControl(req, res, next) {
@@ -51,6 +54,19 @@ async function listUser(req, res, next) {
   }
 }
 
+async function listRequest(req, res, next) {
+  try {
+    const requests = await getAllRequest();
+    console.log(requests);
+    return res.render("list-request", {
+      css: ["nomal-dashboard.css", "list-user.css"],
+      requests,
+    });
+  } catch (error) {
+    console.log("ERROR", error);
+  }
+}
+
 async function editUser(req, res) {
   const { id } = req.query;
   const user = await getUserById(id);
@@ -72,6 +88,10 @@ async function addUser(req, res) {
   });
 }
 
+async function listSchedule(req, res) {
+  const workSchedule = 1;
+}
+
 module.exports = {
   dashboardControl,
   requestControl,
@@ -79,4 +99,6 @@ module.exports = {
   listUser,
   editUser,
   addUser,
+  listRequest,
+  listSchedule,
 };
