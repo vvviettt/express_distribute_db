@@ -1,4 +1,9 @@
 const { getUserById, getUnits } = require("../../user/services/user.service");
+const {
+  getClasses,
+  activeClass,
+  getAllDepartment,
+} = require("../services/class.service");
 const { getEvents } = require("../services/index.services");
 const {
   addRequestService,
@@ -90,6 +95,37 @@ async function addUser(req, res) {
 
 async function listSchedule(req, res) {
   const workSchedule = 1;
+  return res;
+}
+
+async function listClasses(req, res) {
+  const classes = await getClasses();
+  return res.render("class-list", {
+    css: ["nomal-dashboard.css", "list-user.css"],
+    classes,
+  });
+}
+
+async function activeClassRoute(req, res) {
+  try {
+    const { classId, isChecked } = req.body;
+    if (!classId || !isChecked) {
+      throw new Error("Errro");
+    }
+    await activeClass(isChecked, classId);
+    return res.status(200).json("");
+  } catch (error) {
+    return res.status("500").json({ error: "SERVER ERROR" });
+  }
+}
+
+async function addNewClass(req, res) {
+  const departments = await getAllDepartment();
+
+  return res.render("add-class", {
+    css: ["nomal-dashboard.css", "add-user.css"],
+    departments,
+  });
 }
 
 module.exports = {
@@ -101,4 +137,7 @@ module.exports = {
   addUser,
   listRequest,
   listSchedule,
+  listClasses,
+  activeClassRoute,
+  addNewClass,
 };

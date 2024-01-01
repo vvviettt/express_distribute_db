@@ -1,0 +1,55 @@
+{{>sidebarNomal}}
+<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+<div class="dashboard">
+  <div class="header"></div>
+  <div class="container">
+    <div class="flex justify-between">
+        <div class="title">Danh sách lớp</div>
+        <div class="right-content w-100px">
+            <a class="add-btn" href="/dashboard/add-class">Thêm mới</a>
+        </div>
+    </div>
+    <div class="tb-header">
+            <div class="header-wrapper  w-1">
+                <p class="header-text">STT</p>
+            </div>
+             <div class="header-wrapper  w-2">
+                <p class="header-text">Tên</p>
+            </div>
+            <div class="header-wrapper  w-4">
+                <p class="header-text">Khoa</p>
+            </div>
+            <div class="header-wrapper  w-1">
+                <p class="header-text">Đơn vị</p>
+            </div>
+            <div class="header-wrapper  w-3">
+                <p class="header-text">Active</p>
+            </div>
+        </div>
+     {{#each classes}}
+         <div class="row {{#di @index 2 }}row-highlight{{/di}}">
+             <div class="item  w-1">
+                    <p class="header-text">{{inc @index}}</p>
+                </div>
+                <div class="item w-2">
+                    <p class="header-text">{{this/name}}</p>
+                </div>
+                <div class="item w-4">
+                    <p class="header-text">{{this/departmentName}}</p>
+                </div>
+                 <div class="item  w-1">
+                    <p class="header-text">{{this/unitId}}</p>
+                </div>
+                <div class="item  w-3">
+                    <label class="switch">
+                        <input class="status" data-id="{{this/id}}" type="checkbox" {{#if_eq this/isActive true}} checked {{/if_eq}} >
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+         </div>
+     {{/each}}
+  </div>
+</div>
+
+<script src="/js/listClass.js"></script>
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>

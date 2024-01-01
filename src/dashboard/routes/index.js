@@ -9,6 +9,10 @@ const {
   editUser,
   listRequest,
   listSchedule,
+  listClasses,
+  activeClass,
+  activeClassRoute,
+  addNewClass,
 } = require("../controllers");
 const { adminMiddleware } = require("../../middlewares/admin.middleware");
 var router = express.Router();
@@ -23,5 +27,8 @@ router.get("/list-request", adminMiddleware, listRequest);
 router.get("/add-user", adminMiddleware, addUser);
 router.get("/request/detail", adminMiddleware, addUser);
 router.get("/schedule", adminMiddleware, listSchedule);
+router.get("/classes", adminMiddleware, listClasses);
+router.patch("/class/active", adminMiddleware, activeClassRoute);
+router.get("/add-class", adminMiddleware, addNewClass);
 
 module.exports = router;

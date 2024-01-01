@@ -1,0 +1,35 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+    <div class="header"></div>
+    <div class="container">
+        <div class="title">Thêm lớp</div>
+        <div>
+            <form id="form-user" action="/class" method="post">
+                <div class="wrapper">
+                    <label class="label" for="name">Tên</label>
+                    <input id="name" class="input" type="text" name="name">
+                </div>
+                <div class="wrapper">
+                    <label class="label" for="unit">Khoa</label>
+                    <select id="unit" class="select" name="departmentId">
+                        {{#each departments}}
+                        <option id="option-{{this/id}}" value="{{this/id}}">{{this/name}}-{{this/unitId}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="wrapper">
+                    <label class="label" for="roll">Trạng thái</label>
+                    <label class="switch">
+                        <input name="isChecked" class="status" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+
+                </div>
+
+                <button type="submit">Thêm mới</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+</script>

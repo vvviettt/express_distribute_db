@@ -131,3 +131,15 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.flex {
+  display: flex;
+}
+
+.w-100px {
+  width: 100px;
+}
+
+.justify-between {
+  justify-content: space-between;
+}

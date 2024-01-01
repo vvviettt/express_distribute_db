@@ -8,7 +8,7 @@ dayjs.extend(timezone);
 async function getEvents(userId) {
   const teach =
     await mssql.query(`SELECT subjectId, lessonNum,startAt,[subjects].[name] as subjectName,[classes].[name] as className from
-   (SELECT * FROM user_teach 
+   (SELECT teachingSchedule.lessonNum, teachingSchedule.subjectId, teachingSchedule.startAt FROM user_teach 
    INNER JOIN teachingSchedule 
    ON [user_teach].[workId] = [teachingSchedule].[id] 
    AND  [user_teach].[userId] = '${userId}' ) rs1

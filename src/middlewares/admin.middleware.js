@@ -4,6 +4,7 @@ function adminMiddleware(req, res, next) {
     return next();
   }
   res.params = { ...res.params, isAdmin: false };
+  return res.redirect("/auth/login");
   throw {
     message: "Không có quyền truy cập",
     status: 403,
