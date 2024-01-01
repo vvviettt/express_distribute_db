@@ -3,7 +3,15 @@ const sql = require("mssql");
 async function connect() {
   try {
     await sql.connect(
-      `Server=localhost,1433;Database=${process.env.SQL_DBNAME};User Id=${process.env.SQL_USERNAME};Password=${process.env.SQL_PASSWORD};Encrypt=true;Trusted_Connection=True;TrustServerCertificate=True;`
+      "Server=" +
+        process.env.SQL_SERVER +
+        ";Database=" +
+        process.env.SQL_DBNAME +
+        ";User Id=" +
+        process.env.SQL_USERNAME +
+        ";Password=" +
+        "123456" +
+        ";Trusted_Connection=True;TrustServerCertificate=True;"
     );
     console.log("Connect success ");
   } catch (error) {
