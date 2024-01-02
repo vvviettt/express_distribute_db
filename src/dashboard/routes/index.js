@@ -13,6 +13,7 @@ const {
   activeClass,
   activeClassRoute,
   addNewClass,
+  addCalendarView,
 } = require("../controllers");
 const { adminMiddleware } = require("../../middlewares/admin.middleware");
 var router = express.Router();
@@ -30,5 +31,5 @@ router.get("/schedule", adminMiddleware, listSchedule);
 router.get("/classes", adminMiddleware, listClasses);
 router.patch("/class/active", adminMiddleware, activeClassRoute);
 router.get("/add-class", adminMiddleware, addNewClass);
-
+router.get("/add-calendar", adminMiddleware, addCalendarView);
 module.exports = router;

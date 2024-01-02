@@ -2,3 +2,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.flex {
+  display: flex;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-start {
+  justify-self: start;
+}
+
+.items-center {
+  align-items: center;
+}

@@ -1,7 +1,7 @@
 <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
 {{>sidebarNomal}}
 <div class="dashboard">
-  <div class="header"></div>
+{{>header}}
   <div class="container">
     <div class="title-container">
         <div class="title">Danh sách người dùng</div>
@@ -62,9 +62,12 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
-                <div class="header-wrapper  w-2">
+                <div class="header-wrapper  w-2" style="gap: 10px;">
                     <a href="/dashboard/user/edit?id={{this/id}}">
                         <img style="height: 25px;" src="/images/edit.svg" alt="" srcset="">
+                    </a>
+                     <a href="/dashboard/add-calendar?id={{this/id}}">
+                        <img style="height: 16px;" src="/images/calendar-add.svg" alt="" srcset="">
                     </a>
                 </div>
             </div>

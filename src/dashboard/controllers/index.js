@@ -3,6 +3,7 @@ const {
   getClasses,
   activeClass,
   getAllDepartment,
+  getSubjectForClass,
 } = require("../services/class.service");
 const { getEvents } = require("../services/index.services");
 const {
@@ -79,7 +80,7 @@ async function editUser(req, res) {
   const units = await getUnits();
 
   return res.render("user-edit", {
-    css: ["nomal-dashboard.css", "edit-user.css"],
+    css: ["nomal-dashboard.css", "edit-user.css", "form.css"],
     units,
     user,
   });
@@ -88,7 +89,7 @@ async function editUser(req, res) {
 async function addUser(req, res) {
   const units = await getUnits();
   return res.render("add-user", {
-    css: ["nomal-dashboard.css", "add-user.css"],
+    css: ["nomal-dashboard.css", "add-user.css", "form.css"],
     units,
   });
 }
@@ -121,10 +122,21 @@ async function activeClassRoute(req, res) {
 
 async function addNewClass(req, res) {
   const departments = await getAllDepartment();
-
   return res.render("add-class", {
-    css: ["nomal-dashboard.css", "add-user.css"],
+    css: ["nomal-dashboard.css", "add-user.css", "form.css"],
     departments,
+  });
+}
+
+async function addCalendarView(req, res) {
+  const subjects = await getSubjectForClass();
+  if (!req.query.id) {
+    throw "err";
+  }
+  return res.render("add-schedule", {
+    css: ["nomal-dashboard.css", "add-user.css", "form.css"],
+    subjects,
+    userId: req.query.id,
   });
 }
 
@@ -140,4 +152,5 @@ module.exports = {
   listClasses,
   activeClassRoute,
   addNewClass,
+  addCalendarView,
 };

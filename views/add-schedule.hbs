@@ -1,0 +1,60 @@
+{{>sidebarNomal}}
+<div class="dashboard">
+    {{>header}}
+    <div class="container">
+        <div class="title">Thêm lịch làm việc ({{userName}})</div>
+        <div>
+            <form id="form-user" action="/schedule" method="post">
+                <input type="text" name="userId" hidden value="{{userId}}">
+                <div class="wrapper">
+                    <label class="label" for="roll">Loại công việc</label>
+                    <select id="type-select" class="select input" name="type">
+                        <option value="teaching">Lịch dạy</option>
+                        <option value="meeting">Lịch họp</option>
+                    </select>
+                </div>
+                <div data-type="teaching" class="wrapper">
+                    <label class="label" for="unit">Môn học</label>
+                    <select id="unit" class="select input" name="subject">
+                        {{#each subjects}}
+                        <option id="option-{{this/id}}" value="{{this/id}}">{{this/name}}({{this/className}}-{{this/unit}})</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div data-type="teaching" class="wrapper">
+                    <label class="label" for="unit">Số tiết</label>
+                    <input name="lessonNum" type="number" class="input">
+                </div>
+                <div class="wrapper">
+                    <label class="label" for="unit">Thời gian bắt đầu</label>
+                    <input name="startAt" type="datetime-local" class="input">
+                </div>
+                <div data-type="meeting" class="wrapper">
+                    <label class="label" for="unit">Thời gian kết thúc</label>
+                    <input name="endAt" type="datetime-local" class="input">
+                </div>
+                <div data-type="meeting" class="wrapper">
+                    <label class="label" for="unit">Chi tiết</label>
+                    <textarea name="desc" class="input-area" rows="5"></textarea>
+                </div>
+                <button type="submit">Thêm mới</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('document').ready(function () {
+        $("[data-type=meeting]").hide()
+        $("#type-select").change(function (e) {
+            if (e.target.value === 'meeting') {
+                $("[data-type=meeting]").show()
+                $("[data-type=teaching]").hide()
+
+            } else {
+                $("[data-type=meeting]").hide()
+                $("[data-type=teaching]").show()
+            }
+        })
+    })
+</script>

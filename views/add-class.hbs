@@ -1,6 +1,6 @@
 {{>sidebarNomal}}
 <div class="dashboard">
-    <div class="header"></div>
+    {{>header}}
     <div class="container">
         <div class="title">Thêm lớp</div>
         <div>
@@ -11,7 +11,7 @@
                 </div>
                 <div class="wrapper">
                     <label class="label" for="unit">Khoa</label>
-                    <select id="unit" class="select" name="departmentId">
+                    <select id="unit" class="select input" name="departmentId">
                         {{#each departments}}
                         <option id="option-{{this/id}}" value="{{this/id}}">{{this/name}}-{{this/unitId}}</option>
                         {{/each}}

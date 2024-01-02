@@ -1,6 +1,6 @@
 {{>sidebarNomal}}
 <div class="dashboard">
-  <div class="header"></div>
+{{>header}}
   <div class="container">
     <div class="title">Thêm người dùng</div>
     <div>
@@ -18,8 +18,8 @@
                 <input id="password" class="input" type="text" name="password">
             </div>
             <div class="wrapper">
-                <label class="label" for="roll">Đơn vị</label>
-                <select id="roll-select"  class="select" name="roll">
+                <label class="label" for="roll">Vai trò</label>
+                <select id="roll-select"  class="select input" name="roll">
                     <option value="normal">Người dùng</option>
                     <option value="admin">Quản trị viên</option>
                 </select>
@@ -33,8 +33,8 @@
 
             </div>
             <div class="wrapper">
-                <label class="label" for="unit">Vai trò</label>
-                <select id="unit" class="select" name="unit">
+                <label class="label" for="unit">Đơn vị</label>
+                <select id="unit" class="select input" name="unit">
                     {{#each units}}
                         <option id="option-{{this/code}}" value="{{this/code}}">{{this/name}}</option>
                     {{/each}}

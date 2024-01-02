@@ -1,0 +1,31 @@
+.title {
+  padding-bottom: 12px;
+}
+
+.wrapper {
+  margin-bottom: 8px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.input {
+  width: 450px;
+  height: 30px;
+  padding: 0 12px;
+}
+
+.input-area {
+  width: 450px;
+  padding: 0 12px;
+}
+
+button {
+  width: 80px;
+  height: 30px;
+  margin-top: 18px;
+}

@@ -10,7 +10,7 @@ async function connect() {
         ";User Id=" +
         process.env.SQL_USERNAME +
         ";Password=" +
-        "123456" +
+        process.env.SQL_PASSWORD +
         ";Trusted_Connection=True;TrustServerCertificate=True;"
     );
     console.log("Connect success ");
